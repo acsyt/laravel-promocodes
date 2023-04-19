@@ -133,7 +133,7 @@ class Promocode extends Model implements PromocodeContract
      */
     public function appliedByUser(Model $user): bool
     {
-        return $this->users()->where(DB::raw('users.id'), $user->id)->exists();
+        return $this->users()->where(DB::raw(config('promocodes.models.users.model').'id'), $user->id)->exists();
     }
 
     /**
